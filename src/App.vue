@@ -20,6 +20,10 @@
 	font-family: Overlock;
 }
 
+body{ 
+	overflow-x: hidden !important;
+}
+
 .centered-flex {
 	display: flex;
 	flex-direction: column;
