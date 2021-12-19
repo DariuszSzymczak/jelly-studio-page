@@ -3,23 +3,21 @@
     <Navbar></Navbar>
 
     <section id="home-section">
-      
-     
       <img src="../assets/logo-with-lucek.png" id="main-logo" />
-      <Medusa id=1 ></Medusa>           
-      <Medusa id=2 ></Medusa>           
-      <Medusa id=3></Medusa>           
-      <Medusa :reverse= "true" id=4></Medusa>   
-      <Medusa :reverse= "true" id=5></Medusa>   
-      <Medusa :reverse= "true" id=6></Medusa>   
-         
 
       <div class="main-bottom centered-flex">
-        <button id="explore-button">Eksploruj</button>  
+        <button id="explore-button">Eksploruj</button>
         <img src="../assets/feather/chevron-down.svg" id="down-arrow" />
       </div>
     </section>
   </div>
+    <Medusa :reverse="true" :id="0" :random="1"></Medusa>
+    <Medusa :reverse="true" id="1" random="2"></Medusa>
+    <Medusa :reverse="true" id="2" random="3"></Medusa>
+    <Medusa  id="3" random="4"></Medusa>
+    <Medusa  id="4" random="2"></Medusa>
+    <Medusa  id="5" random="1"></Medusa>
+
 </template>
 
 <script setup>
@@ -27,19 +25,20 @@
 import Navbar from '../components/Navbar.vue'
 import Divider from '../components/Divider.vue';
 import Medusa from '../assets/medusa/Medusa.vue';
+import { onMounted} from 'vue';
 
+let medusesCount = 6;
 
 
 
 </script>
 
 <style scoped lang="scss">
-
-.move-box{
+.move-box {
   position: absolute;
   top: 5vw;
   left: 2vw;
-  width:15vw;
+  width: 15vw;
 }
 
 #explore-button {

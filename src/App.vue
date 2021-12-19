@@ -1,8 +1,4 @@
 <script setup>
-
-
-
-
 </script>
 
 <template>
@@ -20,7 +16,7 @@
 	font-family: Overlock;
 }
 
-body{ 
+body, #app{ 
 	overflow-x: hidden !important;
 }
 
