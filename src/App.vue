@@ -14,10 +14,12 @@
 
 * {
 	font-family: Overlock;
+	
 }
 
 body, #app{ 
 	overflow-x: hidden !important;
+	position:relative;
 }
 
 .centered-flex {

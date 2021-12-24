@@ -4,6 +4,8 @@ import router from "./router";
 import * as normalize from "normalize.css";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import VueSmoothScroll from 'vue3-smooth-scroll'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAtX6bY0S91Kd-NIMWIoSjTdU1-TbQMnjs",
@@ -21,6 +23,9 @@ const analytics = getAnalytics(app);
 let vueapp = createApp(App);
 vueapp.use(router);
 vueapp.use(normalize);
+vueapp.use(VueSmoothScroll,{
+  duration: 1500
+});
 vueapp.mount("#app");
 
 

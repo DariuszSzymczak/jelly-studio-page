@@ -6,18 +6,45 @@
       <img src="../assets/logo-with-lucek.png" id="main-logo" />
 
       <div class="main-bottom centered-flex">
-        <button id="explore-button">Eksploruj</button>
+        <JellyButton link="#author-section">Eksploruj</JellyButton>
         <img src="../assets/feather/chevron-down.svg" id="down-arrow" />
+      </div>
+      <Medusa :reverse="true" :id="0" :random="1"></Medusa>
+      <Medusa :reverse="true" :id="1" :random="2"></Medusa>
+      <Medusa :reverse="true" :id="2" :random="3"></Medusa>
+      <Medusa :id="3" :random="4"></Medusa>
+      <Medusa :id="4" :random="2"></Medusa>
+      <Medusa :id="5" :random="1"></Medusa>
+    </section>
+
+    <section id="author-section">
+      <h1>Autor strony</h1>
+      <JellyGrid id="author-box">
+        <template v-slot:left-sidebar>
+          <h1>Dariusz Szymczak</h1>
+          <p>Jestem Front-End developerem z 2 letnim stażem, jednak tworzeniem stron www, aplikacji i grafiki zajmuję się już od dziecka. Moje doświadzcenie obejmuje głównie react i angular, ale moje zamiłowanie do vue sprawiło, że obecnie działam wyłącznie w tej technologii. Szkolę się również w projektowaniu GUI, logo i animacjach SVG.</p>
+          <p>
+            <b>Jelly studio</b> jest aktualnie otwartym projektem i moim poligonem szkoleniowym. Obok niego rozwijam bibliotekę komponentów
+            <b>Jelly-Items</b> oraz system zarządzania treścią stron i sklepów internetowych
+            <b>Jelly-Pages</b>. W przyszłości mam nadzieję przekształcić to w prawdziwe studio programistyczne :)
+          </p>
+        </template>
+        <template v-slot:right-sidebar>
+          <img src="../assets/dariusz.jpg" id="author-img" />
+        </template>
+      </JellyGrid>
+      <div id="author-links">
+        <JellySquare
+          icon="linkedin"
+          color="#0073b1"
+          link="https://www.linkedin.com/in/dariuszszymczak/"
+        ></JellySquare>
+        <JellySquare icon="github" color="#1a1e22" link="https://github.com/DariuszSzymczak"></JellySquare>
+        <JellySquare icon="mail" color="#63b1ff" link="mailto:dariusz.szymczak96@gmail.com"></JellySquare>
+        <JellySquare text="CV" color="#ea4646"></JellySquare>
       </div>
     </section>
   </div>
-    <Medusa :reverse="true" :id="0" :random="1"></Medusa>
-    <Medusa :reverse="true" id="1" random="2"></Medusa>
-    <Medusa :reverse="true" id="2" random="3"></Medusa>
-    <Medusa  id="3" random="4"></Medusa>
-    <Medusa  id="4" random="2"></Medusa>
-    <Medusa  id="5" random="1"></Medusa>
-
 </template>
 
 <script setup>
@@ -25,43 +52,49 @@
 import Navbar from '../components/Navbar.vue'
 import Divider from '../components/Divider.vue';
 import Medusa from '../assets/medusa/Medusa.vue';
-import { onMounted} from 'vue';
+import { onMounted } from 'vue';
+import { gsap } from "gsap";
+import JellyButton from '../components/JellyButton.vue';
+import JellyGrid from "../components/JellyGrid.vue";
+import JellySquare from "../components/JellySquare.vue";
 
-let medusesCount = 6;
 
+let moveArrow = gsap.timeline({
+  repeat: -1,
+  repeatRefresh: true,
+  yoyo: true
+})
 
+onMounted(() => {
+  moveArrow.to('#down-arrow', {
+    y: '4vh',
+    duration: 2
+  })
+})
 
 </script>
 
 <style scoped lang="scss">
-.move-box {
-  position: absolute;
-  top: 5vw;
-  left: 2vw;
-  width: 15vw;
+#main-box {
+  width: 100vw;
 }
 
-#explore-button {
-  background: #008d8c;
-  border: solid 0.2vw #013b3b;
-  padding: 1vw 4vw;
-  border-radius: 2vw;
-  color: #00ff75;
-  font-size: 1.2vw;
-  cursor: pointer;
+.move-box {
+  position: absolute;
+  overflow-y: visible;
+  width: 15vw;
+  // height: 30vw;
 }
 
 .main-bottom {
-  position: absolute;
-  bottom: 3vw;
+  position: relative;
+  top: 10vh;
 }
 
 #down-arrow {
   width: 3vw;
-}
-
-#main-box {
-  width: 100vw;
+  filter: invert(92%) sepia(0%) saturate(4022%) hue-rotate(126deg)
+    brightness(110%) contrast(106%);
 }
 
 #main-logo {
@@ -81,5 +114,72 @@ let medusesCount = 6;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+// -------------------    page 2
+
+#author-section {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f8ff;
+  text-align: center;
+
+  & > h1 {
+    margin: 2vw;
+    margin-bottom: 4vw;
+  }
+}
+
+#author-box {
+  width: 70vw;
+  margin: auto;
+  background-color: white;
+  margin: 2vw auto;
+  border-radius: 1vw;
+  -webkit-box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
+  -moz-box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
+  box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
+}
+
+#author-links {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+// mobile
+@media only screen and (max-width: 600px) {
+  #main-logo {
+    margin-top: 30vh;
+    width: 90%;
+    z-index: 7;
+  }
+
+  #down-arrow {
+    width: 13vw;
+  }
+
+  .move-box {
+    position: absolute;
+    top: 5vw;
+    left: 2vw;
+    width: 45vw;
+  }
+
+  #author-box {
+  width: 90vw;
+
+  }
+
+  #author-section {
+
+    & > h1 {
+      margin-top: 20vw;
+      margin-bottom: 4vw;
+    }
+  }
 }
 </style>

@@ -12,7 +12,8 @@
     "normalize.css": "^8.0.1",
     "sass": "^1.43.5",
     "vue": "^3.2.16",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-smooth-scroll": "^0.8.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",

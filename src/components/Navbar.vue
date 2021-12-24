@@ -3,19 +3,19 @@
         <nav id="nav-top">
             <img :src="menuPath"   @click="menuButtonClick"/>
 
-            <a href="#about">Autor</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Usługi</a>
-            <a href="#contact">Kontakt</a>
-            <a href="#cv">CV</a>
+            <a href="#author-section" v-smooth-scroll>Autor</a>
+            <a href="#portfolio"  v-smooth-scroll>Portfolio</a>
+            <a href="#services"  v-smooth-scroll>Usługi</a>
+            <a href="#contact"  v-smooth-scroll>Kontakt</a>
+            <a href="#cv"  v-smooth-scroll>CV</a>
         </nav>
 
         <nav id="mobile-nav" v-if="isMenuOpen">
-            <a href="#about">Autor</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Usługi</a>
-            <a href="#contact">Kontakt</a>
-            <a href="#cv">CV</a>
+            <a href="#author-section" @click="hideMenu"  v-smooth-scroll>Autor</a>
+            <a href="#portfolio" @click="hideMenu"  v-smooth-scroll>Portfolio</a>
+            <a href="#services" @click="hideMenu"  v-smooth-scroll>Usługi</a>
+            <a href="#contact" @click="hideMenu"  v-smooth-scroll>Kontakt</a>
+            <a href="#cv" @click="hideMenu"  v-smooth-scroll>CV</a>
         </nav>
     </div>
 </template>
@@ -34,6 +34,10 @@ const menuButtonClick = () => {
     } else {
         menuPath.value = new URL(`../assets/feather/menu.svg`, import.meta.url);
     }
+}
+
+const hideMenu = () => {
+    isMenuOpen.value = false;
 }
 
 </script>
@@ -55,7 +59,7 @@ const menuButtonClick = () => {
         align-items: center;
         justify-content: center;
         border-radius: 1vw;
-
+        z-index: 20;
         a {
             color: #00ff75;
             text-decoration: none;
@@ -111,7 +115,7 @@ const menuButtonClick = () => {
             cursor: pointer;
             filter: invert(92%) sepia(0%) saturate(4022%) hue-rotate(126deg)
                 brightness(110%) contrast(106%);
-            &:hover {
+            &:active {
                 filter: invert(42%) sepia(60%) saturate(2392%)
                     hue-rotate(351deg) brightness(104%) contrast(99%);
             }

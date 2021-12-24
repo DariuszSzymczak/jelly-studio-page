@@ -129,9 +129,7 @@ import { defineProps, ref } from 'vue';
 
 const z = ref(randomInt(1, 10));
 
-setInterval(() => {
-    z.value = randomInt(1, 20);
-}, 6000)
+
 
 
 
@@ -154,9 +152,6 @@ let legs = gsap.timeline({
     repeatRefresh: true,
     yoyo: true
 })
-
-
-
 
 
 let move = gsap.timeline({
@@ -242,12 +237,12 @@ onMounted(() => {
         move.add('start')
             .to('.move-box' + props.id, {
                 y: function () { return getRand(0, 40) + 'vh' },
-                x: '-15vw',
+                x: '-60vw',
                 scale: function () { return getRand(0.2, 1) },
                 duration: 0,
             }, 'start')
             .to('.move-box' + props.id, {
-                x: '85vw',
+                x: '120vw',
                 duration: 10 - props.random,
             }, '>0')
     } else {
@@ -255,12 +250,12 @@ onMounted(() => {
         move.add('start')
             .to('.move-box' + props.id, {
                 y: function () { return getRand(0, 40) + 'vh' },
-                x: '85vw',
+                x: '120vw',
                 scale: function () { return getRand(0.2, 1) },
                 duration: 0,
             }, 'start')
             .to('.move-box' + props.id, {
-                x: '-15vw',
+                x: '-60vw',
                 duration: 10 - props.random,
             }, '>0')
     }
