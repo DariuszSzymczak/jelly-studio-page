@@ -4,7 +4,7 @@
             <img :src="menuPath"   @click="menuButtonClick"/>
 
             <a href="#author-section" v-smooth-scroll>Autor</a>
-            <a href="#portfolio"  v-smooth-scroll>Portfolio</a>
+            <a href="#projects-section"  v-smooth-scroll>Projekty</a>
             <a href="#services"  v-smooth-scroll>Usługi</a>
             <a href="#contact"  v-smooth-scroll>Kontakt</a>
             <a href="#cv"  v-smooth-scroll>CV</a>
@@ -12,7 +12,7 @@
 
         <nav id="mobile-nav" v-if="isMenuOpen">
             <a href="#author-section" @click="hideMenu"  v-smooth-scroll>Autor</a>
-            <a href="#portfolio" @click="hideMenu"  v-smooth-scroll>Portfolio</a>
+            <a href="#projects-section" @click="hideMenu"  v-smooth-scroll>Projekty</a>
             <a href="#services" @click="hideMenu"  v-smooth-scroll>Usługi</a>
             <a href="#contact" @click="hideMenu"  v-smooth-scroll>Kontakt</a>
             <a href="#cv" @click="hideMenu"  v-smooth-scroll>CV</a>

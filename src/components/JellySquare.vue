@@ -1,6 +1,6 @@
 <template>
     <a :href="props.link">
-        <div class="jelly-square" :style="{ background: props.color }">
+        <div class="jelly-square" :style="{ background: props.color }" :id="'jelly-square-' + id">
             <img v-if="props.icon != ''" :src="path" />
             {{ text }}
         </div>
@@ -10,10 +10,15 @@
 <script setup>
 import { defineProps, ref } from 'vue';
 
+
 const props = defineProps({
     link: {
         type: String,
         default: ""
+    },
+    id: {
+        type: String,
+        default: "0"
     },
     color: {
         type: String,
@@ -35,12 +40,12 @@ const path = ref(new URL(`../assets/feather/${props.icon}.svg`, import.meta.url)
 </script>
 
 <style lang="scss">
-
-  a {
-        text-decoration: none;
-    }
+a {
+    text-decoration: none;
+}
 
 .jelly-square {
+   
     color: white;
     border: solid 0.2vw #013b3b;
     padding: 1vw;
@@ -67,7 +72,6 @@ const path = ref(new URL(`../assets/feather/${props.icon}.svg`, import.meta.url)
     &:hover {
         background: #e76610 !important;
     }
-  
 }
 
 @media only screen and (max-width: 600px) {

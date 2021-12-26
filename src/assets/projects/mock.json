@@ -1,0 +1,24 @@
+{
+    "data" : [
+        {
+            "name":"deejii-art",
+            "description": "strona grafika komputerowego",
+            "category":"www",
+            "images":[
+                "deejii-art/1.png",
+                "deejii-art/2.png",
+                "deejii-art/3.png"
+            ]
+        },
+        {
+            "name":"FotoHelena",
+            "description": "strona studia fotograficznego",
+            "category":"www",
+            "images":[
+                "FotoHelena/1.png",
+                "FotoHelena/2.png",
+                "FotoHelena/3.png"
+            ]
+        }
+    ]
+}

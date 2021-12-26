@@ -38,11 +38,19 @@
           icon="linkedin"
           color="#0073b1"
           link="https://www.linkedin.com/in/dariuszszymczak/"
+          id="0"
         ></JellySquare>
-        <JellySquare icon="github" color="#1a1e22" link="https://github.com/DariuszSzymczak"></JellySquare>
-        <JellySquare icon="mail" color="#63b1ff" link="mailto:dariusz.szymczak96@gmail.com"></JellySquare>
-        <JellySquare text="CV" color="#ea4646"></JellySquare>
+        <JellySquare icon="github" color="#1a1e22" link="https://github.com/DariuszSzymczak" id="1"></JellySquare>
+        <JellySquare icon="mail" color="#63b1ff" link="mailto:dariusz.szymczak96@gmail.com" id="2"></JellySquare>
+        <JellySquare text="CV" color="#ea4646" id="3"></JellySquare>
       </div>
+    </section>
+
+    <section id="projects-section">
+      <Divider height="10vh"></Divider>
+      <h1>Projekty</h1>
+      <JellyFilteredGrid :categories="categories"  :onClick="filterProjects"></JellyFilteredGrid>
+      <JellyPortfolioCards :projects="filteredProjects" ></JellyPortfolioCards>
     </section>
   </div>
 </template>
@@ -52,12 +60,17 @@
 import Navbar from '../components/Navbar.vue'
 import Divider from '../components/Divider.vue';
 import Medusa from '../assets/medusa/Medusa.vue';
-import { onMounted } from 'vue';
-import { gsap } from "gsap";
+import { onMounted, ref } from 'vue';
 import JellyButton from '../components/JellyButton.vue';
 import JellyGrid from "../components/JellyGrid.vue";
 import JellySquare from "../components/JellySquare.vue";
+import { gsap } from "gsap";
+import JellyFilteredGrid from '../components/JellyFilteredGrid.vue';
+import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
+import * as Projects from '../assets/projects/mock.json';
 
+const categories = ['www', 'grafika','gry','inne'];
+const filteredProjects = ref([]);
 
 let moveArrow = gsap.timeline({
   repeat: -1,
@@ -65,16 +78,41 @@ let moveArrow = gsap.timeline({
   yoyo: true
 })
 
+const filterProjects = (category) => {
+  let newList = [];
+  Projects.data.forEach( item => {
+    if(item.category === category) {
+      newList.push(item)
+    }
+  })
+  filteredProjects.value = newList;
+}
+
 onMounted(() => {
   moveArrow.to('#down-arrow', {
     y: '4vh',
     duration: 2
   })
+
+  filterProjects('www');
+
 })
+
+
 
 </script>
 
 <style scoped lang="scss">
+section {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8ff;
+}
+
 #main-box {
   width: 100vw;
 }
@@ -104,25 +142,15 @@ onMounted(() => {
 }
 
 #home-section {
-  overflow-x: hidden;
-  width: 100%;
-  height: 100vh;
   background: url("../assets/mainpageBG.jpg");
   background-size: cover;
   background-position-x: center;
   background-position-y: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 // -------------------    page 2
 
 #author-section {
-  overflow-x: hidden;
-  width: 100%;
-  height: 100vh;
-  background-color: #f8f8ff;
   text-align: center;
 
   & > h1 {
@@ -170,12 +198,10 @@ onMounted(() => {
   }
 
   #author-box {
-  width: 90vw;
-
+    width: 90vw;
   }
 
   #author-section {
-
     & > h1 {
       margin-top: 20vw;
       margin-bottom: 4vw;
