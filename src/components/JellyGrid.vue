@@ -1,9 +1,9 @@
 <template>
     <div class="main-outer-box" :id="props.id">
-        <div class="sidebar left-sidebar">
+        <div class="sidebar" :style="{width: props.reverse ? '35%' :'65%' }">
             <slot name="left-sidebar"></slot>
         </div>
-        <div class="sidebar right-sidebar">
+        <div class="sidebar" :style="{width: props.reverse ? '65%' :'35%' }">
             <slot name="right-sidebar"></slot>
         </div>
     </div>
@@ -13,7 +13,11 @@
 import { defineProps } from 'vue';
 
 const props = defineProps({
-    id: String
+    id: String,
+    reverse: {
+        default: false,
+        type: Boolean
+    }
 })
 </script>
 
@@ -42,11 +46,7 @@ const props = defineProps({
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    img {
-        width: 100%;
-        border-radius: 5vw;
-        width: 18vw;
-    }
+  
 }
 // desktop
 @media only screen and (min-width: 601px) {

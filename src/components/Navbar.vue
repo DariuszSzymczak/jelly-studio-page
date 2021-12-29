@@ -2,20 +2,17 @@
     <div id="navs">
         <nav id="nav-top">
             <img :src="menuPath"   @click="menuButtonClick"/>
-
             <a href="#author-section" v-smooth-scroll>Autor</a>
             <a href="#projects-section"  v-smooth-scroll>Projekty</a>
             <a href="#services"  v-smooth-scroll>Usługi</a>
-            <a href="#contact"  v-smooth-scroll>Kontakt</a>
-            <a href="#cv"  v-smooth-scroll>CV</a>
+            <a href="#contact"  v-smooth-scroll>Kontakt</a>        
         </nav>
 
         <nav id="mobile-nav" v-if="isMenuOpen">
             <a href="#author-section" @click="hideMenu"  v-smooth-scroll>Autor</a>
             <a href="#projects-section" @click="hideMenu"  v-smooth-scroll>Projekty</a>
             <a href="#services" @click="hideMenu"  v-smooth-scroll>Usługi</a>
-            <a href="#contact" @click="hideMenu"  v-smooth-scroll>Kontakt</a>
-            <a href="#cv" @click="hideMenu"  v-smooth-scroll>CV</a>
+            <a href="#contact" @click="hideMenu"  v-smooth-scroll>Kontakt</a>            
         </nav>
     </div>
 </template>
@@ -38,6 +35,7 @@ const menuButtonClick = () => {
 
 const hideMenu = () => {
     isMenuOpen.value = false;
+    menuPath.value = new URL(`../assets/feather/menu.svg`, import.meta.url);
 }
 
 </script>
@@ -53,17 +51,18 @@ const hideMenu = () => {
     #nav-top {
         position: fixed;
         top: 2vw;
-        left: 2vw;
+        right: 2vw;
         background: #00584c86;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 1vw;
         z-index: 20;
+        padding: 0.5vw;
         a {
             color: #00ff75;
             text-decoration: none;
-            font-size: 1.3vw;
+            font-size: 1.4vw;
             margin: 1vw;
             &:hover {
                 color: #ffffff;
@@ -71,15 +70,7 @@ const hideMenu = () => {
         }
 
         img {
-            margin: 1vw;
-            width: 2vw;
-            cursor: pointer;
-            filter: invert(92%) sepia(0%) saturate(4022%) hue-rotate(126deg)
-                brightness(110%) contrast(106%);
-            &:hover {
-                filter: invert(42%) sepia(60%) saturate(2392%)
-                    hue-rotate(351deg) brightness(104%) contrast(99%);
-            }
+            display: NONE;
         }
     }
 

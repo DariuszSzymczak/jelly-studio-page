@@ -6,7 +6,7 @@
       <img src="../assets/logo-with-lucek.png" id="main-logo" />
 
       <div class="main-bottom centered-flex">
-        <JellyButton link="#author-section">Eksploruj</JellyButton>
+        <JellyButton link="#author-section">E K S P L O R U J</JellyButton>
         <img src="../assets/feather/chevron-down.svg" id="down-arrow" />
       </div>
       <Medusa :reverse="true" :id="0" :random="1"></Medusa>
@@ -49,8 +49,12 @@
     <section id="projects-section">
       <Divider height="10vh"></Divider>
       <h1>Projekty</h1>
-      <JellyFilteredGrid :categories="categories"  :onClick="filterProjects"></JellyFilteredGrid>
-      <JellyPortfolioCards :projects="filteredProjects" ></JellyPortfolioCards>
+      <JellyFilteredGrid
+        :categories="categories"
+        :onClick="filterProjects"
+        :active="activeCategory"
+      ></JellyFilteredGrid>
+      <JellyPortfolioCards :projects="filteredProjects"></JellyPortfolioCards>
     </section>
   </div>
 </template>
@@ -69,9 +73,9 @@ import JellyFilteredGrid from '../components/JellyFilteredGrid.vue';
 import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
 import * as Projects from '../assets/projects/mock.json';
 
-const categories = ['www', 'grafika','gry','inne'];
+const categories = ['www', 'grafika', 'gry', 'inne'];
 const filteredProjects = ref([]);
-
+const activeCategory = ref('www');
 let moveArrow = gsap.timeline({
   repeat: -1,
   repeatRefresh: true,
@@ -79,9 +83,10 @@ let moveArrow = gsap.timeline({
 })
 
 const filterProjects = (category) => {
+  activeCategory.value = category;
   let newList = [];
-  Projects.data.forEach( item => {
-    if(item.category === category) {
+  Projects.data.forEach(item => {
+    if (item.category === category) {
       newList.push(item)
     }
   })
@@ -106,7 +111,7 @@ onMounted(() => {
 section {
   overflow-x: hidden;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,7 +160,6 @@ section {
 
   & > h1 {
     margin: 2vw;
-    margin-bottom: 4vw;
   }
 }
 
@@ -168,6 +172,12 @@ section {
   -webkit-box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
   -moz-box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
   box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
+
+  img {
+    width: 100%;
+    border-radius: 5vw;
+    width: 18vw;
+  }
 }
 
 #author-links {

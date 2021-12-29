@@ -1,6 +1,6 @@
 <template>
 <div class="filtered-grid-categories">
-    <div v-for="item in categories" class="filtered-grid-category" @click="()=>{props.onClick(item)}"> {{item}} </div>
+    <div v-for="item in categories" :class=" props.active === item ? ' filtered-grid-category orange' : 'filtered-grid-category' " @click="()=>{props.onClick(item)}" > {{item}} </div>
 </div>
 </template>
 
@@ -10,7 +10,8 @@ import { defineProps, toRefs } from 'vue';
 
 const props = defineProps({
     categories: Array,
-    onClick: Function
+    onClick: Function,
+    active: String
 })
 
 </script>
@@ -32,9 +33,27 @@ const props = defineProps({
     transition: 0.5s;
     display: inline-block;
     cursor: pointer;
-    &:hover, &:active{
-         background: #e76610 !important;
-    }
+ 
+}
+
+.orange{
+    background: #e76610 !important;
+}
+
+// mobile
+@media only screen and (max-width: 600px) {
+.filtered-grid-category{
+    background-color: #21e581;
+    padding: 1.3vw 3.5vw;
+    margin: 1.2vw;
+    font-size:7vw;
+    font-weight: bold;
+    transition: 0.5s;
+    display: inline-block;
+    cursor: pointer;
+   
+}
+
 }
 
 </style>
