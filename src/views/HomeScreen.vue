@@ -71,7 +71,7 @@ import JellySquare from "../components/JellySquare.vue";
 import { gsap } from "gsap";
 import JellyFilteredGrid from '../components/JellyFilteredGrid.vue';
 import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
-import * as Projects from '../assets/projects/mock.json';
+import * as Projects from '../assets/projects/doneProjects.json';
 
 const categories = ['www', 'grafika', 'gry', 'inne'];
 const filteredProjects = ref([]);

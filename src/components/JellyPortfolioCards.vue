@@ -47,9 +47,9 @@ const generatePaths = (item) => {
 
     for (let x = 0; x < item.images.length; x++) {
         if (x == 0) {
-            bigImagePath.value =  new URL(`../assets/projects/${item.images[x]}`, import.meta.url)
+            bigImagePath.value =  new URL('../'+item.images[x], import.meta.url)
         } else {
-            newList.push(new URL(`../assets/projects/${item.images[x]}`, import.meta.url))
+            newList.push(new URL('../'+item.images[x], import.meta.url))
         }
     }
 

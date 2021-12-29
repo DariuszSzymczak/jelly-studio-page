@@ -12,7 +12,7 @@ const props = defineProps({
     item: Object,
     onClick: Function
 })
-const path = ref(new URL(`../assets/projects/${props.item.images[0]}`, import.meta.url));
+const path = ref(new URL('../'+props.item.images[0], import.meta.url));
 
 </script>
 
