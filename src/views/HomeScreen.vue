@@ -54,7 +54,7 @@
         :onClick="filterProjects"
         :active="activeCategory"
       ></JellyFilteredGrid>
-      <JellyPortfolioCards :projects="filteredProjects"></JellyPortfolioCards>
+      <JellyPortfolioCards :projects="filteredProjects" v-if="switcher"></JellyPortfolioCards>
     </section>
   </div>
 </template>
@@ -71,11 +71,13 @@ import JellySquare from "../components/JellySquare.vue";
 import { gsap } from "gsap";
 import JellyFilteredGrid from '../components/JellyFilteredGrid.vue';
 import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
-import * as Projects from '../assets/projects/doneProjects.json';
+import Projects from '../assets/projects/doneProjects';
+import DoneImages from '../assets/projects/doneImages';
 
 const categories = ['www', 'grafika', 'gry', 'inne'];
 const filteredProjects = ref([]);
 const activeCategory = ref('www');
+const switcher = ref(true);
 let moveArrow = gsap.timeline({
   repeat: -1,
   repeatRefresh: true,
@@ -85,12 +87,15 @@ let moveArrow = gsap.timeline({
 const filterProjects = (category) => {
   activeCategory.value = category;
   let newList = [];
-  Projects.data.forEach(item => {
+  let connectArrays = Projects.concat(DoneImages);
+  connectArrays.forEach(item => {
     if (item.category === category) {
       newList.push(item)
     }
   })
   filteredProjects.value = newList;
+  switcher.value =false;
+ setTimeout(() =>{ switcher.value =true;},50)
 }
 
 onMounted(() => {

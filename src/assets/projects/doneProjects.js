@@ -1,5 +1,4 @@
-{
-    "data" : [
+export default [
         {
             "name":"deejii-art",
             "description": "Portfolio Klaudii Świgoń, które przygotowałem przy pomocy CMS wordpress. Wiele grafik na stronie zostało wykonane przez Klaudię ponieważ jest ona grafikiem :)",
@@ -41,4 +40,3 @@
             ]
         }
     ]
-}

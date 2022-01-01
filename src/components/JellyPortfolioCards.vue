@@ -13,7 +13,7 @@
             <h1>{{ activeItem.name }}</h1>
             <img src="../assets/feather/x.svg" @click="closeModal" />
         </div>
-        <JellyGrid reverse id="projects-modal-grid">
+        <JellyGrid v-if="activeItem.description" reverse id="projects-modal-grid">
             <template v-slot:left-sidebar>
                 <p>{{ activeItem.description }}</p>
             </template>
@@ -24,6 +24,7 @@
                 </div>
             </template>
         </JellyGrid>
+          <img v-if="!activeItem.description"  :src="bigImagePath" id="centered-image"/>
     </div>
 </template>
 
@@ -89,6 +90,10 @@ const closeModal = (item) => {
 <style scoped lang="scss">
 * {
     color: white;
+}
+
+#centered-image{
+    margin:auto;
 }
 
 .filtered-grid-projects {

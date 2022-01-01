@@ -1,18 +1,20 @@
 <template>
-    <div class="jelly-image-square" @click="onClick">
+    <div class="jelly-image-square" @click="onClick" :id="item.name">
         <img :src="path" />
         <p>{{ item.name }}</p>
     </div>
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+import { defineProps, ref, computed } from 'vue';
 
 const props = defineProps({
     item: Object,
     onClick: Function
 })
-const path = ref(new URL('../'+props.item.images[0], import.meta.url));
+const path = computed(() => {
+    return new URL('../'+props.item.images[0], import.meta.url)
+});
 
 </script>
 
@@ -34,7 +36,7 @@ const path = ref(new URL('../'+props.item.images[0], import.meta.url));
     transition: 0.5s;
 
     img {
-        width: 100%;
+        width: auto;
         height: 14vw;
         position: relative;
         z-index: 5;
@@ -51,7 +53,11 @@ const path = ref(new URL('../'+props.item.images[0], import.meta.url));
         margin-top: 9.7vw;
         width: inherit;
         text-align: center;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #19201e 100%);
+           background: linear-gradient(
+                180deg,
+                rgba(109, 109, 109, 0) 0%,
+                #5e5e5e 100%
+            );
         position: absolute;
         z-index: 10;
     }
@@ -63,23 +69,26 @@ const path = ref(new URL('../'+props.item.images[0], import.meta.url));
         width: 90vw;
         height: auto;
         margin: 2vw;
-
+margin-bottom: 3vh;
         img {
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 17vh;
+            
         }
 
         p {
-            color: #10e7a7 !important;
-            font-size: 6vw;
+            color: #36fcc0 !important;
+            font-size: 7vw;
             padding: 5vw 0;
+            padding-top: 9vw;
+            font-weight: bold;
             margin-top: 26vw;
             width: 76vw;
             text-align: center;
             background: linear-gradient(
                 180deg,
-                rgba(0, 0, 0, 0) 0%,
-                #19201e 100%
+                rgba(109, 109, 109, 0) 0%,
+                #5e5e5e 100%
             );
             position: absolute;
             z-index: 10;
