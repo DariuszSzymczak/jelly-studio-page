@@ -1,6 +1,6 @@
 <template>
     <div class="jelly-image-square" @click="onClick" :id="item.name">
-        <img :src="props.item.images[0]"  :class="props.item.category == 'grafika' || props.item.category == 'logo'  ? 'grafika' : ''"/>
+        <img :src="props.item.images[0]"  :class="props.item.category == 'grafika'  ? 'grafika' : ''"/>
         <p>{{ item.name }}</p>
     </div>
 </template>
@@ -24,6 +24,7 @@ const props = defineProps({
     cursor: pointer;
     text-decoration: none;
     width: 30vw;
+    height: 14vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,10 +34,10 @@ const props = defineProps({
     -moz-box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
     box-shadow: 0px 16px 24px -12px rgba(66, 68, 90, 0.5);
     transition: 0.5s;
+    overflow: hidden;
 
     img {
         width: 100%;
-        height: 14vw;
         position: relative;
         z-index: 5;
     }

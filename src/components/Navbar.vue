@@ -5,14 +5,14 @@
             <a href="#author-section" v-smooth-scroll>Autor</a>
             <a href="#projects-section"  v-smooth-scroll>Projekty</a>
             <a href="#services"  v-smooth-scroll>Usługi</a>
-            <a href="#contact"  v-smooth-scroll>Kontakt</a>        
+            <a href="#contact"  v-smooth-scroll class="last-nav">Kontakt</a>        
         </nav>
 
         <nav id="mobile-nav" v-if="isMenuOpen">
             <a href="#author-section" @click="hideMenu"  v-smooth-scroll>Autor</a>
             <a href="#projects-section" @click="hideMenu"  v-smooth-scroll>Projekty</a>
             <a href="#services" @click="hideMenu"  v-smooth-scroll>Usługi</a>
-            <a href="#contact" @click="hideMenu"  v-smooth-scroll>Kontakt</a>            
+            <a href="#contact" @click="hideMenu"  v-smooth-scroll >Kontakt</a>            
         </nav>
     </div>
 </template>
@@ -63,10 +63,16 @@ const hideMenu = () => {
             color: #00ff75;
             text-decoration: none;
             font-size: 1.4vw;
-            margin: 1vw;
+            margin: 1vw 0;
+            border-right: 0.1vw solid #00ff75;
+            padding: 0 1vw;
             &:hover {
                 color: #ffffff;
             }
+        }
+
+        .last-nav{
+            border: none;
         }
 
         img {

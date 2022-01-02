@@ -16,6 +16,10 @@
         <JellyGrid v-if="activeItem.description" reverse id="projects-modal-grid">
             <template v-slot:left-sidebar>
                 <p>{{ activeItem.description }}</p>
+                <div id="projects-modal-link">
+                    <img src='../assets/feather/link.svg'>
+                    <a :href="activeItem.url" target="_blank" rel="noopener noreferrer">{{activeItem.url}}</a>
+                </div>
             </template>
             <template v-slot:right-sidebar>
                     <img :src="bigImagePath">
@@ -94,7 +98,8 @@ const closeModal = (item) => {
 }
 
 #centered-image{
-    margin:auto;
+   margin: 0 auto;
+height: 52vh;
 }
 
 .filtered-grid-projects {
@@ -178,5 +183,23 @@ const closeModal = (item) => {
         margin: 1vw;
         margin-top:0;
     }
+}
+
+#projects-modal-link{
+    margin-top:2vw;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    font-size: 1.5vw;
+     a{ 
+         color:#00c8d4;
+     }
+    img{ 
+        width: 2vw;
+        margin-right: 0.7vw;
+        filter: invert(63%) sepia(39%) saturate(5147%) hue-rotate(143deg) brightness(101%) contrast(101%);
+    }
+
 }
 </style>
