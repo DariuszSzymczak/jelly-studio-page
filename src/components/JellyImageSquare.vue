@@ -1,20 +1,19 @@
 <template>
     <div class="jelly-image-square" @click="onClick" :id="item.name">
-        <img :src="path" />
+        <img :src="props.item.images[0]"  :class="props.item.category == 'grafika' || props.item.category == 'logo'  ? 'grafika' : ''"/>
         <p>{{ item.name }}</p>
     </div>
 </template>
 
 <script setup>
-import { defineProps, ref, computed } from 'vue';
+import { defineProps, ref } from 'vue';
 
 const props = defineProps({
     item: Object,
     onClick: Function
 })
-const path = computed(() => {
-    return new URL('../'+props.item.images[0], import.meta.url)
-});
+
+
 
 </script>
 
@@ -36,10 +35,15 @@ const path = computed(() => {
     transition: 0.5s;
 
     img {
-        width: auto;
+        width: 100%;
         height: 14vw;
         position: relative;
         z-index: 5;
+    }
+
+    .grafika {
+        width: auto;
+        height: 14vw;
     }
 
     &:hover {
@@ -53,11 +57,11 @@ const path = computed(() => {
         margin-top: 9.7vw;
         width: inherit;
         text-align: center;
-           background: linear-gradient(
-                180deg,
-                rgba(109, 109, 109, 0) 0%,
-                #5e5e5e 100%
-            );
+        background: linear-gradient(
+            180deg,
+            rgba(109, 109, 109, 0) 0%,
+            #5e5e5e 100%
+        );
         position: absolute;
         z-index: 10;
     }
@@ -69,11 +73,10 @@ const path = computed(() => {
         width: 90vw;
         height: auto;
         margin: 2vw;
-margin-bottom: 3vh;
+        margin-bottom: 3vh;
         img {
             width: auto;
             height: 17vh;
-            
         }
 
         p {

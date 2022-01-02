@@ -48,9 +48,10 @@ const generatePaths = (item) => {
 
     for (let x = 0; x < item.images.length; x++) {
         if (x == 0) {
-            bigImagePath.value =  new URL('../'+item.images[x], import.meta.url)
+            bigImagePath.value =  item.images[x]
+          
         } else {
-            newList.push(new URL('../'+item.images[x], import.meta.url))
+            newList.push(item.images[x])
         }
     }
 
@@ -63,7 +64,7 @@ const changeBigImage = (image) =>{
     const newList = [];
 
     thumbImagesPaths.value.forEach(item => {
-        if( item.href === image.href){
+        if( item === image){
             newList.push(tempOldBigImage);
         } else {
             newList.push(item);

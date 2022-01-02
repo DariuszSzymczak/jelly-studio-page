@@ -74,7 +74,7 @@ import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
 import Projects from '../assets/projects/doneProjects';
 import DoneImages from '../assets/projects/doneImages';
 
-const categories = ['www', 'grafika', 'gry', 'inne'];
+const categories = ['www', 'grafika','logo'];
 const filteredProjects = ref([]);
 const activeCategory = ref('www');
 const switcher = ref(true);
