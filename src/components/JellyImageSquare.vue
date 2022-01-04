@@ -1,16 +1,23 @@
 <template>
-    <div class="jelly-image-square" @click="onClick" :id="item.name">
-        <img :src="props.item.images[0]"  :class="props.item.category == 'grafika'  ? 'grafika' : ''"/>
-        <p>{{ item.name }}</p>
+ <span class="jelly-image-box">
+        <div class="jelly-image-square" @click="onClick" :id="item.name" :class="props.circle ? 'jelly-circle-image' : '' " >
+        <img :src="imageUrl"  :class="props.item.category == 'grafika'  ? 'grafika' : ''"/>
+        <p  v-if="!props.circle" class='jelly-image-square-p'>{{ item.name }}</p>
     </div>
+        <p v-if="props.circle" class="jelly-image-circle-p">{{ item.name }}</p>
+ </span>
 </template>
 
 <script setup>
 import { defineProps, ref } from 'vue';
-
+const imageUrl = ref(new URL('../'+props.item.images[0],import.meta.url))
 const props = defineProps({
     item: Object,
-    onClick: Function
+    onClick: Function,
+     circle:{
+        type:Boolean,
+        default:false,
+    }
 })
 
 
@@ -18,6 +25,12 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
+.jelly-image-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .jelly-image-square {
     color: white;
     font-size: 1.2vw;
@@ -51,7 +64,7 @@ const props = defineProps({
         background: #e76610 !important;
     }
 
-    p {
+    .jelly-image-square-p {
         color: #10e7a7 !important;
         font-size: 2vw;
         padding: 2vw 0;
@@ -68,6 +81,19 @@ const props = defineProps({
     }
 }
 
+.jelly-circle-image{
+    border-radius:30vw;
+    width: 15vw;
+    height: 15vw;
+   
+}
+
+.jelly-image-circle-p{
+ color: black;
+ font-size: 2vw;
+color: darkcyan;
+}
+
 @media only screen and (max-width: 600px) {
     .jelly-image-square {
         font-size: 6vw;
@@ -80,7 +106,7 @@ const props = defineProps({
             height: 17vh;
         }
 
-        p {
+        .jelly-image-square-p {
             color: #36fcc0 !important;
             font-size: 7vw;
             padding: 5vw 0;

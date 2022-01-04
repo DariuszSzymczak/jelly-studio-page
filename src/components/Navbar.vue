@@ -4,15 +4,15 @@
             <img :src="menuPath"   @click="menuButtonClick"/>
             <a href="#author-section" v-smooth-scroll>Autor</a>
             <a href="#projects-section"  v-smooth-scroll>Projekty</a>
-            <a href="#services"  v-smooth-scroll>Usługi</a>
-            <a href="#contact"  v-smooth-scroll class="last-nav">Kontakt</a>        
+            <a href="#partners-section"  v-smooth-scroll>Partnerzy</a>
+            <a href="#contact-section"  v-smooth-scroll class="last-nav">Kontakt</a>        
         </nav>
 
         <nav id="mobile-nav" v-if="isMenuOpen">
             <a href="#author-section" @click="hideMenu"  v-smooth-scroll>Autor</a>
             <a href="#projects-section" @click="hideMenu"  v-smooth-scroll>Projekty</a>
-            <a href="#services" @click="hideMenu"  v-smooth-scroll>Usługi</a>
-            <a href="#contact" @click="hideMenu"  v-smooth-scroll >Kontakt</a>            
+            <a href="#partners-section" @click="hideMenu"  v-smooth-scroll>Partnerzy</a>
+            <a href="#contact-section" @click="hideMenu"  v-smooth-scroll >Kontakt</a>            
         </nav>
     </div>
 </template>

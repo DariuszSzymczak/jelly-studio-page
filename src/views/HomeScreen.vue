@@ -54,8 +54,17 @@
         :onClick="filterProjects"
         :active="activeCategory"
       ></JellyFilteredGrid>
-      <JellyPortfolioCards :projects="filteredProjects" v-if="switcher"></JellyPortfolioCards>
+      <JellyPortfolioCards :data="filteredProjects" v-if="switcher"></JellyPortfolioCards>
     </section>
+    <section id="partners-section">
+      <Divider height="20vh"></Divider>
+      <h1>Partnerzy</h1>
+           <JellyPortfolioCards :data="partnersData" v-if="switcher" circle ></JellyPortfolioCards>
+      
+      </section>
+    <section id="contact-section">
+      
+      </section>
   </div>
 </template>
 
@@ -65,14 +74,16 @@ import Navbar from '../components/Navbar.vue'
 import Divider from '../components/Divider.vue';
 import Medusa from '../assets/medusa/Medusa.vue';
 import { onMounted, ref } from 'vue';
+import { gsap } from "gsap";
 import JellyButton from '../components/JellyButton.vue';
 import JellyGrid from "../components/JellyGrid.vue";
 import JellySquare from "../components/JellySquare.vue";
-import { gsap } from "gsap";
 import JellyFilteredGrid from '../components/JellyFilteredGrid.vue';
 import JellyPortfolioCards from '../components/JellyPortfolioCards.vue';
 import Projects from '../assets/projects/doneProjects';
 import DoneImages from '../assets/projects/doneImages';
+import partnersData from '../assets/partnersData.js';
+
 
 const categories = ['www', 'grafika','logo'];
 const filteredProjects = ref([]);
@@ -106,6 +117,7 @@ onMounted(() => {
 
   filterProjects('www');
 
+ 
 })
 
 

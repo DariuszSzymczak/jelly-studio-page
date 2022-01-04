@@ -29,7 +29,7 @@
             "description": "",
             "category":"grafika",
             "images":[
-                "https://firebasestorage.googleapis.com/v0/b/jelly-studio.appspot.com/o/sea-cow.png?alt=media&token=4abce8fd-e449-4759-b611-aac74cf344ce"      
+                "assets/sea-cow.png"      
             ]
         },
         {

@@ -7,7 +7,7 @@
 import { defineProps, toRefs } from 'vue';
 
 const props = defineProps({
-    height: Number
+    height: String
 })
 
 const { height } = toRefs(props);
