@@ -1,7 +1,7 @@
 export default [
     {
         name:'Nomad Media',
-        images:['https://firebasestorage.googleapis.com/v0/b/jelly-studio.appspot.com/o/ela.jpg?alt=media&token=236432e4-d671-4f7f-9b0a-1435f6da6ad0'],
+        images:['src/assets/partners/ela.jpg'],
         description:'Ela zajmuje się pisaniem tekstów na strony internetowe.',
         category:'partners',
         url:''

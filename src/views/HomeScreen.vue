@@ -59,12 +59,16 @@
     <section id="partners-section">
       <Divider height="20vh"></Divider>
       <h1>Partnerzy</h1>
-           <JellyPortfolioCards :data="partnersData" v-if="switcher" circle ></JellyPortfolioCards>
-      
-      </section>
-    <section id="contact-section">
-      
-      </section>
+      <JellyPortfolioCards :data="partnersData" v-if="switcher" circle></JellyPortfolioCards>
+    </section>
+    <div id="contact-section">
+      <div id="contacts">
+        <h1>Kontakt</h1>
+        <p>email: dariusz.szymzczak96@gmail.com</p>
+        <p>tel: 732 313 250</p>
+      </div>
+      <div id="copyright">Jelly Studio © All Rights Reserved</div>
+    </div>
   </div>
 </template>
 
@@ -85,7 +89,7 @@ import DoneImages from '../assets/projects/doneImages';
 import partnersData from '../assets/partnersData.js';
 
 
-const categories = ['www', 'grafika','logo'];
+const categories = ['www', 'grafika', 'logo'];
 const filteredProjects = ref([]);
 const activeCategory = ref('www');
 const switcher = ref(true);
@@ -105,8 +109,8 @@ const filterProjects = (category) => {
     }
   })
   filteredProjects.value = newList;
-  switcher.value =false;
- setTimeout(() =>{ switcher.value =true;},50)
+  switcher.value = false;
+  setTimeout(() => { switcher.value = true; }, 50)
 }
 
 onMounted(() => {
@@ -117,7 +121,7 @@ onMounted(() => {
 
   filterProjects('www');
 
- 
+
 })
 
 
@@ -205,6 +209,30 @@ section {
   justify-content: center;
 }
 
+#contact-section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 1vw;
+  align-items: flex-start;
+  color: #00ff75;
+  font-size: 1.2vw;
+  background-image: linear-gradient(
+    to top,
+    #003253,
+    #013e65,
+    #034a77,
+    #07568a,
+    #0b639d
+  );
+}
+
+#copyright {
+  width: 100%;
+  text-align: center;
+}
+
 // mobile
 @media only screen and (max-width: 600px) {
   #main-logo {
@@ -233,6 +261,15 @@ section {
       margin-top: 20vw;
       margin-bottom: 4vw;
     }
+  }
+
+  #author-box img {
+    width: 62vw;
+  }
+
+  #contact-section {
+
+    font-size: 4.2vw;
   }
 }
 </style>

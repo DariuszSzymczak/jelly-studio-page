@@ -28,7 +28,7 @@
             </template>
             <template v-slot:right-sidebar>
                 <!-- <img :src="testImg" /> -->
-                <div id="projects-modal-big" :style="{background: `url(${bigImage})`}"></div>
+                <div id="projects-modal-big" :style="{ background: `url(${bigImage})` }"></div>
                 <div id="projects-modal-thumbnails">
                     <img
                         v-for="item in thumbImagesPaths"
@@ -47,7 +47,7 @@
 import { defineProps, toRefs, ref } from 'vue';
 import JellyImageSquare from './JellyImageSquare.vue';
 import JellyGrid from './JellyGrid.vue';
-const bigImage = ref(new URL('../assets/partners/ela.jpg', import.meta.url));
+const bigImage = ref('');
 
 const props = defineProps({
     data: Array,
@@ -61,16 +61,16 @@ const props = defineProps({
 const isModalOpen = ref(false);
 const activeItem = ref({});
 const thumbImagesPaths = ref([]);
-const bigImagePath = ref('');
+
 
 const generatePaths = (item) => {
     const newList = [];
 
     for (let imageIndex = 0; imageIndex < item.images.length; imageIndex++) {
         if (imageIndex == 0) {
-            bigImage.value = new URL('../'+item.images[imageIndex], import.meta.url);
+            bigImage.value = item.images[imageIndex];
         } else {
-            newList.push(new URL('../'+item.images[imageIndex], import.meta.url))
+            newList.push(item.images[imageIndex])
         }
     }
 
@@ -83,8 +83,7 @@ const changeBigImage = (image) => {
     const newList = [];
 
     thumbImagesPaths.value.forEach(item => {
-        console.log(item.href)
-        if (item.href === image.href) {
+        if (item === image) {
             newList.push(tempOldBigImage);
         } else {
             newList.push(item);
@@ -96,9 +95,9 @@ const changeBigImage = (image) => {
 
 
 const openModal = (item) => {
-   
-    
-  
+
+
+
     generatePaths(item);
     isModalOpen.value = true;
     activeItem.value = item;
@@ -226,6 +225,66 @@ const closeModal = (item) => {
         margin-right: 0.7vw;
         filter: invert(63%) sepia(39%) saturate(5147%) hue-rotate(143deg)
             brightness(101%) contrast(101%);
+    }
+}
+
+// mobile
+@media only screen and (max-width: 600px) {
+    #projects-modal-x h1 {
+        font-size: 8.5vw;
+        padding-left: 2vw;
+    }
+
+    #projects-modal-x img {
+        width: 11vw;
+    }
+
+    .sidebar {
+        width: 94% !important;
+    }
+
+    .main-outer-box p {
+        font-size: 5vw;
+        text-align: left;
+    }
+
+    #projects-modal-link a {
+        font-size: 5vw;
+    }
+
+    #projects-modal-link img {
+        width: 5vw;
+    }
+
+    .main-outer-box {
+        padding: 0;
+    }
+
+    #projects-modal-big {
+        margin-top: 3vw;
+        width: 100%;
+        height: 43vw;
+    }
+
+    #projects-modal-thumbnails img {
+        width: 40vw;
+        margin: 1vw;
+        margin-top: 0;
+        border-radius: 1vw;
+    }
+
+    .grafika {
+        width: auto;
+        height: 34vw;
+    }
+
+    .jelly-image-square-p {
+        margin-top: 23vw;
+    }
+
+    #centered-image{
+        margin: 0 auto;
+        height: 17vh;
     }
 }
 </style>

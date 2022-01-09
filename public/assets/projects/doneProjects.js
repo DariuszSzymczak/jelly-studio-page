@@ -1,13 +1,14 @@
 export default [
         {
             "name":"deejii-art",
-            "description": "Portfolio Klaudii Świgoń, które przygotowałem przy pomocy CMS wordpress. Wiele grafik na stronie zostało wykonane przez Klaudię ponieważ jest ona grafikiem :)",
+            "description": "Portfolio Klaudii Świgoń, które przygotowałem przy pomocy CMS wordpress. Grafiki na stronie zostały wykonane przez Klaudię ponieważ jest ona grafikiem :)",
             "category":"www",
             "images":[
                 "assets/projects/deejii-art/1.png",
                 "assets/projects/deejii-art/2.png",
                 "assets/projects/deejii-art/3.png"
-            ]
+            ],
+            "url":'http://deejii-art.pl'
         },
         {
             "name":"FotoHelena",
@@ -17,7 +18,9 @@ export default [
                 "assets/projects/FotoHelena/1.png",
                 "assets/projects/FotoHelena/2.png",
                 "assets/projects/FotoHelena/3.png"
-            ]
+            ],
+            "url":'http://www.fotohelena.com/'
+            
         },
         {
             "name":"Jelly Pages",
@@ -37,6 +40,7 @@ export default [
                 "assets/projects/troai/1.png",
                 "assets/projects/troai/2.png"
                
-            ]
+            ],
+            "url":'https://www.troai.com/'
         }
     ]

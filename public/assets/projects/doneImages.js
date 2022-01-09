@@ -29,7 +29,23 @@
             "description": "",
             "category":"grafika",
             "images":[
-                "assets/sea-cow/cow.png"               
+                "assets/sea-cow.png"      
+            ]
+        },
+        {
+            "name":"Jelly Pages",
+            "description": "",
+            "category":"logo",
+            "images":[
+                "assets/jelly-pages-logo.png"               
+            ]
+        },
+        {
+            "name":"Jelly Studio",
+            "description": "",
+            "category":"logo",
+            "images":[
+                "assets/logo-with-lucek.png"               
             ]
         }
     ]

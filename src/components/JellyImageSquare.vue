@@ -1,22 +1,27 @@
 <template>
- <span class="jelly-image-box">
-        <div class="jelly-image-square" @click="onClick" :id="item.name" :class="props.circle ? 'jelly-circle-image' : '' " >
-        <img :src="imageUrl"  :class="props.item.category == 'grafika'  ? 'grafika' : ''"/>
-        <p  v-if="!props.circle" class='jelly-image-square-p'>{{ item.name }}</p>
-    </div>
+    <span class="jelly-image-box">
+        <div
+            class="jelly-image-square"
+            @click="onClick"
+            :id="item.name"
+            :class="props.circle ? 'jelly-circle-image' : ''"
+        >
+            <img :src="imageUrl" :class="props.item.category == 'grafika' ? 'grafika' : ''" />
+            <p v-if="!props.circle" class="jelly-image-square-p">{{ item.name }}</p>
+        </div>
         <p v-if="props.circle" class="jelly-image-circle-p">{{ item.name }}</p>
- </span>
+    </span>
 </template>
 
 <script setup>
 import { defineProps, ref } from 'vue';
-const imageUrl = ref(new URL('../'+props.item.images[0],import.meta.url))
+const imageUrl = ref(props.item.images[0])
 const props = defineProps({
     item: Object,
     onClick: Function,
-     circle:{
-        type:Boolean,
-        default:false,
+    circle: {
+        type: Boolean,
+        default: false,
     }
 })
 
@@ -25,7 +30,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.jelly-image-box{
+.jelly-image-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,17 +86,16 @@ const props = defineProps({
     }
 }
 
-.jelly-circle-image{
-    border-radius:30vw;
+.jelly-circle-image {
+    border-radius: 30vw;
     width: 15vw;
     height: 15vw;
-   
 }
 
-.jelly-image-circle-p{
- color: black;
- font-size: 2vw;
-color: darkcyan;
+.jelly-image-circle-p {
+    color: black;
+    font-size: 2vw;
+    color: darkcyan;
 }
 
 @media only screen and (max-width: 600px) {
@@ -123,6 +127,29 @@ color: darkcyan;
             position: absolute;
             z-index: 10;
         }
+    }
+
+    .jelly-image-square {
+        font-size: 2vw;
+        width: 36vw;
+        height: auto;
+        margin: 2vw;
+        margin-bottom: 2vw;
+        margin-bottom: 3vh;
+
+        img{ 
+            height: 23vh;
+        }
+    }
+    .jelly-circle-image {
+        border-radius: 44vw;
+        width: 50vw;
+        height: 50vw;
+    }
+    .jelly-image-circle-p {
+        color: black;
+        font-size: 7vw;
+        color: darkcyan;
     }
 }
 </style>
