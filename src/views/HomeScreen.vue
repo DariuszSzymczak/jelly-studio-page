@@ -42,7 +42,7 @@
         ></JellySquare>
         <JellySquare icon="github" color="#1a1e22" link="https://github.com/DariuszSzymczak" id="1"></JellySquare>
         <JellySquare icon="mail" color="#63b1ff" link="mailto:dariusz.szymczak96@gmail.com" id="2"></JellySquare>
-        <JellySquare text="CV" color="#ea4646" id="3"></JellySquare>
+        <JellySquare text="CV" color="#ea4646" id="3" link="https://firebasestorage.googleapis.com/v0/b/jelly-studio.appspot.com/o/CV%20Dariusz%20Szymczak%20-%20Eng%20.pdf?alt=media&token=546c70a6-0a21-4939-ba35-10f239862143"></JellySquare>
       </div>
     </section>
 

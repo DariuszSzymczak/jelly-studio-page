@@ -114,10 +114,10 @@ const props = defineProps({
             color: #36fcc0 !important;
             font-size: 7vw;
             padding: 5vw 0;
-            padding-top: 9vw;
+            padding-top: 22vw;
             font-weight: bold;
             margin-top: 26vw;
-            width: 76vw;
+            width: 92vw;
             text-align: center;
             background: linear-gradient(
                 180deg,
@@ -131,14 +131,14 @@ const props = defineProps({
 
     .jelly-image-square {
         font-size: 2vw;
-        width: 36vw;
+        width: 92vw;
         height: auto;
         margin: 2vw;
         margin-bottom: 2vw;
         margin-bottom: 3vh;
 
-        img{ 
-            height: 23vh;
+        img {
+            height: 27vh;
         }
     }
     .jelly-circle-image {
@@ -150,6 +150,14 @@ const props = defineProps({
         color: black;
         font-size: 7vw;
         color: darkcyan;
+    }
+
+    .grafika {
+        width: auto;
+        height: 50vw !important;
+    }
+    .jelly-image-box {
+        margin-bottom: 3vw;
     }
 }
 </style>

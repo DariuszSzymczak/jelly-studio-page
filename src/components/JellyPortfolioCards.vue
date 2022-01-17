@@ -239,9 +239,7 @@ const closeModal = (item) => {
         width: 11vw;
     }
 
-    .sidebar {
-        width: 94% !important;
-    }
+   
 
     .main-outer-box p {
         font-size: 5vw;
@@ -273,10 +271,7 @@ const closeModal = (item) => {
         border-radius: 1vw;
     }
 
-    .grafika {
-        width: auto;
-        height: 34vw;
-    }
+ 
 
     .jelly-image-square-p {
         margin-top: 23vw;

@@ -1,9 +1,9 @@
 <template>
     <div class="main-outer-box" :id="props.id">
-        <div class="sidebar" :style="{width: props.reverse ? '35%' :'65%' }">
+        <div class="sidebar" :style="{ width: props.reverse ? '35%' : '65%' }">
             <slot name="left-sidebar"></slot>
         </div>
-        <div class="sidebar" :style="{width: props.reverse ? '65%' :'35%' }">
+        <div class="sidebar" :style="{ width: props.reverse ? '65%' : '35%' }">
             <slot name="right-sidebar"></slot>
         </div>
     </div>
@@ -46,7 +46,6 @@ const props = defineProps({
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  
 }
 // desktop
 @media only screen and (min-width: 601px) {
@@ -63,12 +62,12 @@ const props = defineProps({
 @media only screen and (max-width: 600px) {
     .sidebar {
         margin: auto;
-
-         img {
-        width: 100%;
-        border-radius: 5vw;
+        width: 94% !important;
         
-    }
+        img {
+            width: 100%;
+            border-radius: 5vw;
+        }
     }
 
     .main-outer-box {
